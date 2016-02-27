@@ -13,9 +13,6 @@ namespace FailCrawler
         [Option('p', "path", Required = true, HelpText = "Directory path that should be processed.")]
         public string Path { get; set; }
 
-        [Option('r', "recurse", DefaultValue = true, HelpText = "Recurse directory.")]
-        public bool Recurse { get; set; }
-
         [ParserState]
         public IParserState LastParserState { get; set; }
 

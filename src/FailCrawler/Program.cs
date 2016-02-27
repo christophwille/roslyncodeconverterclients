@@ -15,8 +15,6 @@ namespace FailCrawler
             var options = new Options();
             if (CommandLine.Parser.Default.ParseArguments(args, options))
             {
-                // TODO: Recurse is currently being ignored
-
                 int okFiles = TraverseTree(options.Path);
 
                 Console.WriteLine($"{okFiles} converted without converter exception");
@@ -89,6 +87,7 @@ namespace FailCrawler
         static bool FileConvertedOk(string file, RoslynCodeConverter client)
         {
             string code = System.IO.File.ReadAllText(file);
+            if (String.IsNullOrWhiteSpace(code)) return false;
 
             ConvertResponse result = client.Converter.Post(new ConvertRequest()
             {
