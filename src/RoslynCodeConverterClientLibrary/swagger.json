@@ -1,0 +1,51 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "RoslynCodeConverter"
+  },
+  "host": "roslyncodeconverter.azurewebsites.net",
+  "schemes": [ "https" ],
+  "paths": {
+    "/api/Converter": {
+      "post": {
+        "tags": [ "Converter" ],
+        "operationId": "Converter_Post",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "todo",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ConvertRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ConvertResponse" }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "ConvertRequest": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "requestedConversion": { "type": "string" }
+      }
+    },
+    "ConvertResponse": {
+      "type": "object",
+      "properties": {
+        "conversionOk": { "type": "boolean" },
+        "convertedCode": { "type": "string" },
+        "errorMessage": { "type": "string" }
+      }
+    }
+  }
+}
