@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniConsole", "MiniConsole\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FailCrawler", "FailCrawler\FailCrawler.csproj", "{9195F2CB-B907-4E19-A5AF-80EDC14AECB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopConverterClient", "DesktopConverterClient\DesktopConverterClient.csproj", "{6D437099-4760-478D-AFB2-170DC73F1092}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9195F2CB-B907-4E19-A5AF-80EDC14AECB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9195F2CB-B907-4E19-A5AF-80EDC14AECB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9195F2CB-B907-4E19-A5AF-80EDC14AECB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D437099-4760-478D-AFB2-170DC73F1092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D437099-4760-478D-AFB2-170DC73F1092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D437099-4760-478D-AFB2-170DC73F1092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D437099-4760-478D-AFB2-170DC73F1092}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
