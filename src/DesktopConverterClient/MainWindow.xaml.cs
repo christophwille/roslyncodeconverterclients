@@ -31,7 +31,7 @@ namespace DesktopConverterClient
 
         private IHighlightingDefinition vbDefinition;
 
-        private void runConversion_Click(object sender, RoutedEventArgs e)
+        private async void runConversion_Click(object sender, RoutedEventArgs e)
         {
             outputCode.Text = "";
             outputCode.SyntaxHighlighting = vbDefinition;
@@ -44,7 +44,7 @@ namespace DesktopConverterClient
             {
                 var client = new RoslynCodeConverter();
 
-                ConvertResponse result = client.Converter.Post(new ConvertRequest()
+                ConvertResponse result = await client.Converter.PostAsync(new ConvertRequest()
                 {
                     Code = code,
                     RequestedConversion = "cs2vbnet"
