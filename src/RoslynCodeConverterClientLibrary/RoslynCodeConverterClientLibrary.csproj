@@ -59,6 +59,7 @@
     <Compile Include="Proxies\Models\ConvertResponse.cs" />
     <Compile Include="Proxies\RoslynCodeConverter.cs" />
     <Compile Include="Proxies\RoslynCodeConverterExtensions.cs" />
+    <Compile Include="SupportedConversions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="buildproxy.bat" />

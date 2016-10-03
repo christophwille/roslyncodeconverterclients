@@ -29,10 +29,16 @@
             FontFamily="Consolas"
             FontSize="10pt"/>
 
-        <Button x:Name="runConversion" Content="Convert Code" HorizontalAlignment="Left" 
-                Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="122" Click="runConversion_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" >
+            <RadioButton GroupName="ConversionType" Content="C# -> VB" Margin="10,10,0,0" IsChecked="True" x:Name="cs2vbnetRbtn" />
+            <RadioButton GroupName="ConversionType" Content="VB -> C#" Margin="10,10,0,0" x:Name="vbnet2csRbtn" />
+            <Button x:Name="runConversion" Content="Convert Code" HorizontalAlignment="Left"
+                Margin="10,5,0,0" VerticalAlignment="Top" Width="122" Click="runConversion_Click"/>
+        </StackPanel>
 
-        <Button x:Name="loadInputFile" Content="Load Input (C#) File" HorizontalAlignment="Right" 
+
+
+        <Button x:Name="loadInputFile" Content="Load Input File" HorizontalAlignment="Right"
                 Margin="0,10,10,0" Grid.Row="1" VerticalAlignment="Top" Width="122" Click="loadInputFile_Click"/>
 
 

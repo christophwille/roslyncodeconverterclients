@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Win32;
+using RoslynCodeConverter.Client;
 using RoslynCodeConverterClientLibrary.Proxies;
 using RoslynCodeConverterClientLibrary.Proxies.Models;
 
@@ -27,14 +28,26 @@ namespace DesktopConverterClient
 
             inputCode.Text = "public class Test {}";
             vbDefinition = HighlightingManager.Instance.GetDefinition("VB");
+            csharpDefinition = HighlightingManager.Instance.GetDefinition("C#");
         }
 
         private IHighlightingDefinition vbDefinition;
+        private IHighlightingDefinition csharpDefinition;
 
         private async void runConversion_Click(object sender, RoutedEventArgs e)
         {
             outputCode.Text = "";
-            outputCode.SyntaxHighlighting = vbDefinition;
+            string conversionType = SupportedConversions.CSharp2Vb;
+
+            if (cs2vbnetRbtn.IsChecked == true)
+            {
+                outputCode.SyntaxHighlighting = vbDefinition;
+            }
+            else
+            {
+                outputCode.SyntaxHighlighting = csharpDefinition;
+                conversionType = SupportedConversions.Vb2CSharp;
+            }
 
             string code = inputCode.Text;
             converterCallInflight.Visibility = Visibility.Visible;
@@ -42,12 +55,12 @@ namespace DesktopConverterClient
 
             try
             {
-                var client = new RoslynCodeConverter();
+                var client = new RoslynCodeConverterClientLibrary.Proxies.RoslynCodeConverter();
 
                 ConvertResponse result = await client.Converter.PostAsync(new ConvertRequest()
                 {
                     Code = code,
-                    RequestedConversion = "cs2vbnet"
+                    RequestedConversion = conversionType
                 });
 
                 if (true == result.ConversionOk)
@@ -72,13 +85,30 @@ namespace DesktopConverterClient
 
         private void loadInputFile_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.CheckFileExists = true;
-            dlg.Filter = "C# Files (*.cs) | *.cs";
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                Filter = "C# Files (*.cs) | *.cs|VB Files (*.vb) | *.vb"
+            };
 
             if (dlg.ShowDialog() ?? false)
             {
-                inputCode.Load(dlg.FileName);
+                string filename = dlg.FileName;
+                string extension = System.IO.Path.GetExtension(filename);
+
+                if (0 == String.Compare(".cs", extension, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    inputCode.SyntaxHighlighting = csharpDefinition;
+                    cs2vbnetRbtn.IsChecked = true;
+                }
+                else
+                {
+                    // simply assume vb in the other case
+                    inputCode.SyntaxHighlighting = vbDefinition;
+                    vbnet2csRbtn.IsChecked = true;
+                }
+
+                inputCode.Load(filename);
             }
         }
     }

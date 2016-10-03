@@ -26,7 +26,7 @@ namespace FailCrawler
         // Adapted from: https://msdn.microsoft.com/en-us/library/bb513869.aspx
         public static int TraverseTree(string root)
         {
-            var client = new RoslynCodeConverter();
+            var client = new RoslynCodeConverterClientLibrary.Proxies.RoslynCodeConverter();
             var dirs = new Stack<string>(20);
             int okFiles = 0;
 
@@ -84,7 +84,7 @@ namespace FailCrawler
             return okFiles;
         }
 
-        static bool FileConvertedOk(string file, RoslynCodeConverter client)
+        static bool FileConvertedOk(string file, RoslynCodeConverterClientLibrary.Proxies.RoslynCodeConverter client)
         {
             string code = System.IO.File.ReadAllText(file);
             if (String.IsNullOrWhiteSpace(code)) return false;
