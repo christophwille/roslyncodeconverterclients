@@ -111,7 +111,7 @@ namespace RoslynCodeConverterClientLibrary.Proxies
         private void Initialize()
         {
             this.Converter = new Converter(this);
-            this.BaseUri = new Uri("https://roslyncodeconverter.azurewebsites.net");
+            this.BaseUri = new Uri("https://codeconverter.icsharpcode.net");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,

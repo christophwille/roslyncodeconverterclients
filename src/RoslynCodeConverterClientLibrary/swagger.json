@@ -4,7 +4,7 @@
     "version": "v1",
     "title": "RoslynCodeConverter"
   },
-  "host": "roslyncodeconverter.azurewebsites.net",
+  "host": "codeconverter.icsharpcode.net",
   "schemes": [ "https" ],
   "paths": {
     "/api/Converter": {
