@@ -47,7 +47,7 @@ namespace FailCrawler
                 {
                     subDirs = System.IO.Directory.GetDirectories(currentDir);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     continue;
                 }
@@ -57,7 +57,7 @@ namespace FailCrawler
                 {
                     files = System.IO.Directory.GetFiles(currentDir, "*.cs");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     continue;
                 }
