@@ -15,8 +15,8 @@ using System.Windows.Shapes;
 using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Win32;
 using RoslynCodeConverter.Client;
-using RoslynCodeConverterClientLibrary.Proxies;
-using RoslynCodeConverterClientLibrary.Proxies.Models;
+using RoslynCodeConverter.Client.Proxies;
+using RoslynCodeConverter.Client.Proxies.Models;
 
 namespace DesktopConverterClient
 {
@@ -55,7 +55,7 @@ namespace DesktopConverterClient
 
             try
             {
-                var client = new RoslynCodeConverterClientLibrary.Proxies.RoslynCodeConverter();
+                var client = new RoslynCodeConverter.Client.Proxies.RoslynCodeConverter();
 
                 ConvertResponse result = await client.Converter.PostAsync(new ConvertRequest()
                 {

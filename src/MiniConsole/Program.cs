@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RoslynCodeConverter.Client;
-using RoslynCodeConverterClientLibrary.Proxies;
-using RoslynCodeConverterClientLibrary.Proxies.Models;
+using RoslynCodeConverter.Client.Proxies;
+using RoslynCodeConverter.Client.Proxies.Models;
 
 namespace MiniConsole
 {
@@ -13,7 +13,7 @@ namespace MiniConsole
     {
         static void Main(string[] args)
         {
-            var client = new RoslynCodeConverterClientLibrary.Proxies.RoslynCodeConverter();
+            var client = new RoslynCodeConverter.Client.Proxies.RoslynCodeConverter();
 
             //ConvertResponse result = client.Converter.Post(new ConvertRequest()
             //{
