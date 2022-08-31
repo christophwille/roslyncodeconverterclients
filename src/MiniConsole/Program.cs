@@ -23,7 +23,7 @@ namespace MiniConsole
 
             ConvertResponse result = client.Converter.Post(new ConvertRequest()
             {
-                Code = "Public Class Test\r\nEnd Class",
+                Code = "Public Class MyTest\r\nEnd Class",
                 RequestedConversion = SupportedConversions.Vb2CSharp
             });
 

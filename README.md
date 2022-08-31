@@ -1,5 +1,5 @@
 # RoslynCodeConverter Clients
-Some demo clients for https://codeconverter.icsharpcode.net/
+Some demo clients for https://icsharpcode.github.io/CodeConverter/
 
  * DesktopConverterClient is a GUI app (WPF) that allows to submit code to the converter service. Usage is 
 much like the Web GUI (see screenshot in repo root). Uses AvalonEdit for highlighting.

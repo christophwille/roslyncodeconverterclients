@@ -130,7 +130,7 @@ namespace RoslynCodeConverter.Client.Proxies
         private void Initialize()
         {
             Converter = new Converter(this);
-            BaseUri = new System.Uri("https://codeconverter.icsharpcode.net");
+            BaseUri = new System.Uri("https://dotnet-codeconverter.azurewebsites.net");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
